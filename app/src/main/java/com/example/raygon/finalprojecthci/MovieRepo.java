@@ -26,7 +26,7 @@ public class MovieRepo {
         values.put(Movie.KEY_genre,movie.genre);
         values.put(Movie.KEY_title, movie.title);
 
-        // Inserting Row
+        // Inserting Rows
         long movie_Id = db.insert(Movie.TABLE, null, values);
         db.close(); // Closing database connection
         return (int) movie_Id;
