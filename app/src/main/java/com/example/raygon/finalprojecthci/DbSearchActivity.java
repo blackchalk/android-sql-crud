@@ -1,30 +1,22 @@
 package com.example.raygon.finalprojecthci;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-
-public class ViewMovieEntry extends AppCompatActivity {
-    TextView textViewTitle,textViewgenre,textViewyear;
+public class DbSearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_movie_entry);
-        textViewTitle = (TextView)findViewById(R.id.movie_title);
-        textViewgenre = (TextView)findViewById(R.id.movie_genre);
-        textViewyear = (TextView)findViewById(R.id.movie_year);
-
-
+        setContentView(R.layout.activity_db_search);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_movie_entry, menu);
+        getMenuInflater().inflate(R.menu.menu_db_search, menu);
         return true;
     }
 
