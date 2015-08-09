@@ -24,6 +24,10 @@
             android:name=".ViewMovieEntry"
             android:label="@string/title_activity_view_movie_entry" >
         </activity>
+        <activity
+            android:name=".DbSearchActivity"
+            android:label="@string/title_activity_db_search" >
+        </activity>
     </application>
 
 </manifest>

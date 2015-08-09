@@ -1,0 +1,29 @@
+[33mcommit 907fb50d1827039c55433c8cf26faa67a97edc26[m
+Author: Alvin Raygon <alvinraygon@yahoo.com>
+Date:   Sat Jul 11 15:26:08 2015 +0800
+
+    This is my first commit using the command line in linux system, a simple README file
+
+[33mcommit fe8db35573fb8b8a66f59b65a025593eaac1ccbd[m
+Author: Alvin Raygon <alvinraygon@yahoo.com>
+Date:   Wed Jul 1 19:38:51 2015 +0800
+
+    vcs related changes
+
+[33mcommit 708a4808788cc9fdf1f3debeee5cfe105699b272[m
+Author: Alvin Raygon <alvinraygon@yahoo.com>
+Date:   Sat Jun 27 16:11:46 2015 +0800
+
+    2nd commit. syncing to local host
+
+[33mcommit f300d1e24fa9de98ba90be165e00a62b83149bcb[m
+Author: Alvin Raygon <alvinraygon@yahoo.com>
+Date:   Sat Jun 27 15:47:52 2015 +0800
+
+    first commit
+
+[33mcommit 5591fe1ac7896f320927f298a9db8d082e9f12f1[m
+Author: Alvin Raygon <alvinraygon@yahoo.com>
+Date:   Sat Jun 27 15:47:33 2015 +0800
+
+    :tada: Added .gitattributes

@@ -1,17 +1,24 @@
 package com.example.raygon.finalprojecthci;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
-public class ViewMovieEntry extends ActionBarActivity {
+public class ViewMovieEntry extends AppCompatActivity {
+    TextView textViewTitle,textViewgenre,textViewyear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_movie_entry);
+        textViewTitle = (TextView)findViewById(R.id.movie_title);
+        textViewgenre = (TextView)findViewById(R.id.movie_genre);
+        textViewyear = (TextView)findViewById(R.id.movie_year);
+
+
     }
 
     @Override

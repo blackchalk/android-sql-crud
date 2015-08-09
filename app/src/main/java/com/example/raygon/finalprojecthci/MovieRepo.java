@@ -1,13 +1,15 @@
 package com.example.raygon.finalprojecthci;
 
 /**
- * Created by RAYGON on 5/25/2015.
+ * Created by r on 5/25/2015.
  */
 import android.content.ContentValues;
         import android.content.Context;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
-        import java.util.ArrayList;
+import android.widget.Toast;
+
+import java.util.ArrayList;
         import java.util.HashMap;
 
 public class MovieRepo {
@@ -65,14 +67,14 @@ public class MovieRepo {
                 " FROM " + Movie.TABLE;
 
         //Student student = new Student();
-        ArrayList<HashMap<String, String>> movieList = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> movieList = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
 
         if (cursor.moveToFirst()) {
             do {
-                HashMap<String, String> movie = new HashMap<String, String>();
+                HashMap<String, String> movie = new HashMap<>();
                 movie.put("id", cursor.getString(cursor.getColumnIndex(Movie.KEY_ID)));
                 movie.put("title", cursor.getString(cursor.getColumnIndex(Movie.KEY_title)));
                 movieList.add(movie);
@@ -102,6 +104,7 @@ public class MovieRepo {
 
         Cursor cursor = db.rawQuery(selectQuery, new String[] { String.valueOf(Id) } );
 
+
         if (cursor.moveToFirst()) {
             do {
                 movie.movie_ID =cursor.getInt(cursor.getColumnIndex(Movie.KEY_ID));
@@ -116,4 +119,33 @@ public class MovieRepo {
         db.close();
         return movie;
     }
+    public Movie getMoviebyTitle(String title){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                Movie.KEY_ID + "," +
+                Movie.KEY_title + "," +
+                Movie.KEY_genre + "," +
+                Movie.KEY_year +
+                " FROM " + Movie.TABLE
+                + " WHERE " +
+                Movie.KEY_ID + "=?";// It's a good practice to use parameter ?, instead of concatenate string
+        Movie movie = new Movie();
+
+        Cursor cursor = db.rawQuery(selectQuery,new String[]{title});
+        String id;
+        if(cursor.moveToFirst()) {
+            int ididx =cursor.getColumnIndexOrThrow(Movie.KEY_title);
+            id = cursor.getString(ididx);
+            Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
+
+        }
+        cursor.close();
+        db.close();
+        return movie;
+    }
+
+    private Context getApplicationContext() {
+        return null;
+    }
+
 }

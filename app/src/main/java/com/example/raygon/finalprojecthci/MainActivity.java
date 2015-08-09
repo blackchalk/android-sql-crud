@@ -2,18 +2,15 @@ package com.example.raygon.finalprojecthci;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -27,6 +24,7 @@ public class MainActivity extends ListActivity  implements android.view.View.OnC
 
     Button btnAdd,btnGetAll;
     TextView movie_Id;
+    EditText editTextsearch;
 
     @Override
     public void onClick(View view) {
@@ -45,10 +43,11 @@ public class MainActivity extends ListActivity  implements android.view.View.OnC
                 ListView lv = getListView();
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                        movie_Id = (TextView) view.findViewById(R.id.movie_Id);
+                    public void onItemClick(AdapterView<?> parent, View view1,int position, long id) {
+                        movie_Id = (TextView) view1.findViewById(R.id.movie_Id);
                         String movieId = movie_Id.getText().toString();
-                        Intent objIndent = new Intent(getApplicationContext(),MovieDetail.class);
+                        Intent objIndent = new Intent(getApplicationContext(),
+                                MovieDetail.class);
                         objIndent.putExtra("movie_Id", Integer.parseInt( movieId));
                         startActivity(objIndent);
                     }
@@ -72,6 +71,23 @@ public class MainActivity extends ListActivity  implements android.view.View.OnC
 
         btnGetAll = (Button) findViewById(R.id.btnGetAll);
         btnGetAll.setOnClickListener(this);
+
+
+        editTextsearch = (EditText)findViewById(R.id.mysearch);
+        editTextsearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    String searchme = v.getText().toString();
+                    Intent objString = new Intent(getApplication(),DbSearchActivity.class);
+                    objString.putExtra("SEARCH",searchme);
+                    startActivity(objString);
+                    Toast.makeText(getApplicationContext(),searchme,Toast.LENGTH_SHORT).show();
+                }
+                return false;
+
+            }
+        });
 
     }
 
